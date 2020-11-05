@@ -1,0 +1,27 @@
+@import "styles/index.scss";
+
+.gridInfoContainer {
+    display: grid;
+    margin: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include keyframes(rotateImage) {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    &__image {
+        display: flex;
+        margin: 2rem 1rem;
+        grid-column: 2/3;
+        grid-row: 1/5;
+
+        img {
+            margin: auto;
+            animation: rotateImage 10s linear infinite;
+            width: 10rem;
+            filter: invert(96%) sepia(100%) saturate(1%) hue-rotate(354deg) brightness(101%) contrast(102%);
+        }
+    }
+}

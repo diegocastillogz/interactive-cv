@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Layout from "components/containers/layout";
+import Stars from "components/shared/stars";
+import GridInfoContainer from "components/containers/gridInfoContainer";
+import { GENERAL_INFO } from "components/constant/pages";
+import { Fragment } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Fragment>
+    <Stars />
+    <Layout>
+      <div className="title-container">
+        <h1>curriculum vitae</h1>
+        <h2>
+          diego castillo <span>software / web developer</span>
+        </h2>
+      </div>
+
+      <GridInfoContainer GridData={GENERAL_INFO} />
+    </Layout>
+  </Fragment>
+);
 
 export default App;

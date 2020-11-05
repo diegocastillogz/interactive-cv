@@ -1,0 +1,65 @@
+@import "styles/index.scss";
+@import "styles/variables.scss";
+
+
+.stars {
+    @function multiple-box-shadow($stars_to_generate) {
+        $value: '#{random(2000)}px #{random(2000)}px #FFF';
+
+        @for $i from 2 through $stars_to_generate {
+            $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+        }
+
+        @return unquote($value);
+    }
+
+    @include keyframes(animStar) {
+        0% {
+            transform: translateY(0px);
+        }
+
+        100% {
+            transform: translateY(-2000px)
+        }
+    }
+
+    @mixin stars-generator($stars_to_generate) {
+        $shadows: multiple-box-shadow($stars_to_generate);
+        background: transparent;
+        box-shadow: $shadows;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            top: 2000px;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: $shadows;
+        }
+    }
+
+    >div {
+        &:first-child {
+            @include stars-generator(700);
+            height: 1px;
+            width: 1px;
+            animation: animStar 40s linear infinite;
+        }
+
+        &:nth-child(2) {
+            @include stars-generator(200);
+            height: 2px;
+            width: 2px;
+            animation: animStar 100s linear infinite;
+        }
+
+        &:nth-child(3) {
+            @include stars-generator(200);
+            height: 3px;
+            width: 3px;
+            animation: animStar 150s linear infinite;
+        }
+    }
+
+}

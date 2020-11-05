@@ -1,0 +1,112 @@
+@import "./variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:ital@1&display=swap');
+
+body {
+  background: radial-gradient(ellipse at bottom, $background_from 0%, $background_to 100%);
+  color: $secondary_color;
+  margin: 0;
+  font-family: 'Volkhov', serif;
+  overflow: hidden
+}
+
+h1,
+h2,
+h3,
+p,
+label,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Yanone Kaffeesatz';
+  text-transform: uppercase;
+  font-size: $extra_large;
+  font-weight: 300;
+  border-bottom: 0.1rem solid $third_color;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: $small;
+  font-family: 'Fira Sans';
+
+  span {
+    color: $third_color;
+    margin-left: 0.5rem;
+  }
+}
+
+h3,
+p {
+  font-weight: 300;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+h3 {
+  font-size: $small;
+  color: $third_color;
+}
+
+p {
+  font-size: $extra_small;
+}
+
+a {
+  color: $secondary_color;
+}
+
+.title-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+
+  h2 {
+    margin-top: 1rem;
+  }
+}
+
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin animate($name, $duration, $iteration, $direction) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+  -moz-animation-iteration-count: $iteration;
+  -o-animation-iteration-count: $iteration;
+  animation-iteration-count: $iteration;
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+  -webkit-animation-direction: $direction;
+  -moz-animation-direction: $direction;
+  -o-animation-direction: $direction;
+  animation-direction: $direction;
+}
