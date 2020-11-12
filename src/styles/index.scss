@@ -16,6 +16,8 @@ h2,
 h3,
 p,
 label,
+ul,
+li,
 span {
   margin: 0;
   padding: 0;
@@ -34,11 +36,7 @@ h2 {
   font-weight: 500;
   font-size: $small;
   font-family: 'Fira Sans';
-
-  span {
-    color: $third_color;
-    margin-left: 0.5rem;
-  }
+  color: $third_color;
 }
 
 h3,
@@ -62,6 +60,7 @@ p {
 a {
   color: $secondary_color;
 }
+
 
 .title-container {
   margin: 0 auto;

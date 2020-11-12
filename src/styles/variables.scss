@@ -1,7 +1,13 @@
 $background_from: #1B2735;
 $background_to: #090A0F;
 $secondary_color: #fff;
-$third_color: #45ab5d;
+$third_color: #7AC74F;
+
+@mixin filter_to_third_color {
+    filter: invert(64%) sepia(31%) saturate(762%) hue-rotate(55deg) brightness(104%) contrast(86%);
+}
+
+$white: #fff;
 
 $extra_small: 1.5rem;
 $small: 2rem;

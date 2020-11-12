@@ -3,6 +3,8 @@
 
 
 .stars {
+    position: absolute;
+
     @function multiple-box-shadow($stars_to_generate) {
         $value: '#{random(2000)}px #{random(2000)}px #FFF';
 
@@ -61,5 +63,42 @@
             animation: animStar 150s linear infinite;
         }
     }
+
+}
+
+
+.ufo {
+    @include keyframes(ufoMovement) {
+        0% {
+            transform: translate(-5vw, 5vh);
+        }
+
+        20% {
+            transform: translate(100vw, 200vh);
+        }
+
+        40% {
+            transform: translate(30vw, 300vh);
+        }
+
+        60% {
+            transform: translate(80vw, -100vh);
+        }
+
+        80% {
+            transform: translate(-100vw, 85vh);
+        }
+
+        100% {
+            transform: translate(100vw, 20vh);
+        }
+    }
+
+    position: absolute;
+    animation: ufoMovement 60s linear 5s infinite forwards;
+    top: -100px;
+    height: 4rem;
+    z-index: -1;
+    @include filter_to_third_color;
 
 }

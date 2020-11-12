@@ -1,0 +1,110 @@
+@import "styles/variables.scss";
+@import "styles/index.scss";
+
+.navbar {
+    margin-top: 5rem;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 4rem;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    &__viewButton {
+        color: $white;
+        font-family: 'Volkhov', serif;
+        font-size: $extra_small;
+        background-color: transparent;
+        border: 0;
+        text-transform: capitalize;
+
+        @include keyframes(movingArrowRight) {
+
+            0% {
+                transform: translateX(10px);
+            }
+
+            50% {
+                transform: translateX(0px);
+            }
+
+            100% {
+                transform: translateX(10px);
+            }
+        }
+
+        @include keyframes(movingArrowLeft) {
+
+            0% {
+                transform: translateX(-10px);
+            }
+
+            50% {
+                transform: translateX(0px);
+            }
+
+            100% {
+                transform: translateX(-10px);
+            }
+        }
+
+
+        @mixin arrowAfterButton {
+            position: absolute;
+            content: ">";
+            top: 0.1rem;
+            right: -0.5rem;
+            font-size: $extra_small;
+            font-weight: bold;
+            animation: movingArrowRight 1s linear infinite;
+        }
+
+        @mixin arrowBeforeButton {
+            position: absolute;
+            content: "<";
+            top: 0.1rem;
+            left: -0.5rem;
+            font-size: $extra_small;
+            font-weight: bold;
+            animation: movingArrowLeft 1s linear infinite;
+
+        }
+
+        @mixin selectedStyle {
+            color: $third_color;
+            position: relative;
+        }
+
+        &--selected {
+            @include selectedStyle;
+
+            &::after {
+                @include arrowAfterButton;
+            }
+
+            &::before {
+                @include arrowBeforeButton;
+            }
+        }
+
+        &--isFirstselected {
+            @include selectedStyle;
+
+            &::after {
+                @include arrowAfterButton;
+            }
+        }
+
+        &--isLastselected {
+            @include selectedStyle;
+
+            &::before {
+                @include arrowBeforeButton;
+            }
+        }
+    }
+}

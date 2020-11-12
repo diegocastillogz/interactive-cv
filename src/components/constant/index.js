@@ -1,9 +1,18 @@
 import galaxyImage from "assets/images/galaxy.svg";
 
+export const VIEWS = [
+  "general info",
+  "skills",
+  "history",
+  "github",
+  "blog",
+  "interests",
+];
+
 export const GENERAL_INFO = {
   image: { src: galaxyImage, alt: "agujero negro" },
   data: [
-    { type: "text", title: "location", text: "bogotá, colombia" },
+    { type: "text", title: "location", text: "bogotá, Colombia" },
     {
       type: "link",
       title: "web",
@@ -29,7 +38,12 @@ export const GENERAL_INFO = {
       text: "diegorlando5@gmail.com",
       mailto: "diegorlando5@gmail.com",
     },
-    { type: "text", title: "languages", text: "English and Spanish" },
-    { type: "text", title: "linkedin", text: "---" },
+    { type: "text", title: "languages", text: "english and spanish" },
+    {
+      type: "link",
+      title: "linkedin",
+      text: "diego-castillo",
+      href: "https://www.linkedin.com/in/diego-castillo-17b2aa1bb/",
+    },
   ],
 };

@@ -1,23 +1,31 @@
 import Layout from "components/containers/layout";
 import Stars from "components/shared/stars";
-import GridInfoContainer from "components/containers/gridInfoContainer";
-import { GENERAL_INFO } from "components/constant/pages";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import MainView from "components/views/mainView";
+import Navbar from "components/shared/navbar";
 
-const App = () => (
-  <Fragment>
-    <Stars />
-    <Layout>
-      <div className="title-container">
-        <h1>curriculum vitae</h1>
-        <h2>
-          diego castillo <span>software / web developer</span>
-        </h2>
-      </div>
+const App = () => {
+  const [selectedView, setSelectedView] = useState(0);
 
-      <GridInfoContainer GridData={GENERAL_INFO} />
-    </Layout>
-  </Fragment>
-);
+  const getSelectedView = () => {
+    switch (selectedView) {
+      case 0:
+        return <MainView />;
+
+      default:
+        return <MainView />;
+    }
+  };
+
+  return (
+    <Fragment>
+      <Stars />
+      <Layout>
+        {getSelectedView()}
+        <Navbar selectedView={selectedView} setSelectedView={setSelectedView} />
+      </Layout>
+    </Fragment>
+  );
+};
 
 export default App;
